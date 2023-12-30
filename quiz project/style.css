@@ -5,6 +5,7 @@ body {
     background: linear-gradient(to bottom, #2dc651, #6666fd); 
     align-items: center;
     min-height: 2400px;
+    font-family: 'Lato', sans-serif;
 }
 
 .header {
@@ -88,4 +89,15 @@ button {
     font-size: 24px;
 }
 
+.results {
+    color: white;
+    font-size: 32px;
+}
+
+.answers {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 24px;
+}
 

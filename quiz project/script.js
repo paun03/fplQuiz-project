@@ -81,8 +81,8 @@ console.log(randomArray(questions));
 
 // SELECTORS
 
-let main = document.querySelector(".main-section-class");
-console.log(main);
+let main = document.querySelector(".main-section-class")
+let answers = document.querySelector(".answers");
 
 // BUTTONS 
 
@@ -127,17 +127,31 @@ let checkIfTrue = (arr, newArray) => {
                 isTrue = true;
             };
         }
-        if (isTrue) {
-            console.log("TRUE");
+        if (isTrue == true) {
+            let pTrue = document.createElement("p");
+            pTrue.innerText = `Question ${i + 1} is CORRECT!`;
+            pTrue.style.color = "greenyellow";
+            answers.appendChild(pTrue);
         } else {
-            console.log("FALSE");
+            let pFalse = document.createElement("p");
+            pFalse.innerText = `Question ${i + 1} is FALSE!`;
+            pFalse.style.color = "red";
+            answers.appendChild(pFalse);
         };
     }
+};
+
+let printResults = () => {
+    let h3 = document.createElement("h3");
+        h3.textContent = "RESULTS: ";
+        h3.classList.add("results");
+        answers.appendChild(h3);
 };
 
 btnSubmit.addEventListener("click", () => {
     let selectAllRadios = document.querySelectorAll("input[type='radio']:checked");
     let newArray = Array.from(selectAllRadios);
+    printResults();
     checkIfTrue(questions, newArray);    
 });
 
