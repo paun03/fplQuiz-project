@@ -62,7 +62,37 @@ let q10 = {
     indexOfTrue: 0
 };
 
-let questions = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
+let q11 = {
+    text: "Which of these teams has the highest scoring player?",
+    answers: ["West Ham", "Wolverhampton Wonderers", "Newcastle", "Manchester United"],
+    indexOfTrue: 0
+};
+
+let q12 = {
+    text: "Which of Arsenals midfielders has the most amount of points?",
+    answers: ["Martinelli", "Ødegaard", "Saka", "Rice"],
+    indexOfTrue: 2
+};
+
+let q13 = {
+    text: "Who is Uniteds top scorer?",
+    answers: ["Garnacho", "Fernandes", "Rashford", "Onana"],
+    indexOfTrue: 3
+};
+
+let q14 = {
+    text: "Who is tied with Palhinha with most yellow cards thus far?",
+    answers: ["Emerson", "Fernandes", "McBurnie", "Jackson"],
+    indexOfTrue: 3
+};
+
+let q15 = {
+    text: "After Salah, who has the best influence rating?",
+    answers: ["Trafford", "Anderesen", "Haaland", "Gross"],
+    indexOfTrue: 0
+};
+
+let questions = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15];
 
 // SHUFFLE
 
@@ -151,8 +181,13 @@ let printResults = () => {
 btnSubmit.addEventListener("click", () => {
     let selectAllRadios = document.querySelectorAll("input[type='radio']:checked");
     let newArray = Array.from(selectAllRadios);
-    printResults();
-    checkIfTrue(questions, newArray);    
+    if (newArray.length !== 5) {
+        alert("Please Insert All Answers!");
+    } else {
+        printResults();
+        checkIfTrue(questions, newArray);
+        btnSubmit.disabled = true;
+    }    
 });
 
 btnNewGame.addEventListener("click", () => {
